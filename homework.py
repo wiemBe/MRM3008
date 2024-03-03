@@ -98,8 +98,8 @@ def problem13():
     ####################  Firtina 
     # Gercekleri ve Kurallari bilgi tabanina ogretin
 
-    kb.tell(Implies(Or(And(HavaBasinciYuksek,Not(HavaBasinciYuksek)),Ruzgar),Firtina))
-    
+  
+    kb.tell(Implies(Or(And(HavaSicakPozitif,Not(HavaBasinciYuksek)),Ruzgar),Firtina))
     #Kurallar
     ###################  Hava sicakligi pozitif ve hava basinci yuksek degilse veya ruzgar var ise Firtina yaklasiyordur"
     
@@ -221,8 +221,8 @@ def problem23():
     
     # Onermeler icin fonksiyonlar
     
-    ece =Constant('zeynep')
-    riza=Constant('ahmet')
+    zeynep =Constant('zeynep')
+    ahmet=Constant('ahmet')
     
     def Kadin(x): return Atom("Kadindir", x)
     def Cocugu(x,y): return Atom("y x in cocugu", x, y)
@@ -263,8 +263,8 @@ def problem24():
     riza=Constant('riza')
     ece=Constant('ece')
 
-    def Onceliklidir(x): return Atom("Onceliklidir x", x)
-    def Risklidir(x): return Atom("Risklidir x",x)
+    def Onceliklidir(x): return Atom("Onceliklidir", x)
+    def Risklidir(x): return Atom("Risklidir",x)
     ####################################   Öncelikli x ler vardır
     ####################################   Riskli x ler vardir      
     
@@ -275,11 +275,12 @@ def problem24():
             return Not(Risklidir(x))
 
     # Gercekleri ve Kurallari bilgi tabanina ogretin
-    
+    kb.tell(Forall("$x",Implies(Risklidir("$x"),Onceliklidir("$x"))))
     #Kurallar
     ####################################  Tüm Riskliler Önceliklidir.
-    
-    #Gercekler
+    kb.tell(riza,16)
+    kb.tell(ece, 13)
+        #Gercekler
     ####################################  #Riza nin tansiyonu 16 dir
     ####################################  # Ece'nin tansiyonu 13'tür 
      
@@ -289,3 +290,5 @@ def problem24():
 
 
 ############################################################
+
+problem13()
