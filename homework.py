@@ -199,14 +199,14 @@ def problem22():
     #Kural
     ##############################################  "Birisi gitar kursu almış ise gitar calabilir"
     
-    
-    kb.tell(Forall("$x", Implies(KursAlmis("$x"),GitarCalar("$x"))))
+    kb.tell(Forall("$x",Implies(KursAlmis("$x"),GitarCalar("$x"))))
     
     kb.tell(KursAlmis(zeynep))
     kb.tell(Not(KursAlmis(ahmet)))
-    
+    # zeynep doğru cevap döndürüyo ama ahmette i don't know demekte anlamadım çözemedim niye
     #Sorgu
     print(kb.ask(GitarCalar(ahmet)))
+    print(kb.ask(GitarCalar(zeynep)))
 
 
 
@@ -225,18 +225,18 @@ def problem23():
     ahmet=Constant('ahmet')
     
     def Kadin(x): return Atom("Kadindir", x)
-    def Cocugu(x,y): return Atom("y x in cocugu", x, y)
-    def Kizi(x,y): return Atom("y x in kizidir", x, y)
+    def Cocugu(x,y): return Atom("y x in cocugu",y,x)
+    def Kizi(x,y): return Atom("y x in kizidir",x,y)
     #######################################            # x kadin dir
     #######################################            # y x'in cocugudur
     ########################################           # y x'in kizidir
 
     # Gercekleri ve Kurallari bilgi tabanina ogretin
     
-    kb.tell(Forall("$x, $y",Implies(And(Kadin("$x"),Cocugu("$x,$y")),Kizi("$y,$x"))))
+   # kb.tell(Forall("$x, $y",Implies(And(Kadin("$x"),Cocugu("$x","$y")),Kizi("$y","$x"))))
     #Kural
     ################################################   # x,y nin cocugu ise ve x kadin ise, x yenin kizidir
-    
+    kb.tell(Forall("$x",Implies(And(Kadin("$x"),Cocugu(zeynep,"x")),Kizi(zeynep,"$x"))))
     #Gercekler
     
     kb.tell(Kadin(zeynep))
@@ -291,4 +291,4 @@ def problem24():
 
 ############################################################
 
-problem13()
+problem23()
