@@ -26,5 +26,5 @@ def Atesivar(x,ates):
 	else:
 		return Not(Atom('Ates',x))
 def Xhastasi(x):
-	return  And(Tansiyonvar(x),
+	return  And(Tansiyonvar(x))
 

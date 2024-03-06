@@ -238,7 +238,8 @@ def problem23():
     ################################################   # x,y nin cocugu ise ve x kadin ise, x yenin kizidir
 
     #Gercekler
-    kb.tell(Forall("$x",Forall("$y",Equiv(Cocugu("$x","$y"),Kizi("$y","$x")))))
+    #kb.tell(Forall("$x",Forall("$y",Equiv(And(Cocugu("$x","$y"),Kizi("$y","$x")))))
+    kb.tell(Forall('$x', Forall('$y', Equiv(And(Cocugu('$x', '$y'), Kadin('$y')),Kizi('$x', '$y')))))
 
     kb.tell(Kadin(zeynep))
     kb.tell(Cocugu(ahmet,zeynep))
@@ -271,9 +272,9 @@ def problem24():
     
     def Tansiyon(x,y):   #x 'in tansiyonu y ise ve y>13 ise x Risklidir
         if y>13:
-            return Risklidir(x)
+            return Atom("Onceliklidir",x)
         else:
-            return Not(Risklidir(x))
+            return Not(Atom("Onceliklidir",x))
 
     # Gercekleri ve Kurallari bilgi tabanina ogretin
     kb.tell(Forall("$x",Implies(Risklidir("$x"),Onceliklidir("$x"))))
@@ -281,8 +282,8 @@ def problem24():
     ####################################  Tüm Riskliler Önceliklidir.
     
 
-    kb.tell(riza,16)
-    kb.tell(ece,13)
+    kb.tell(Tansiyon(riza,16))
+    kb.tell(Tansiyon(ece,13))
         #Gercekler
     ####################################  #Riza nin tansiyonu 16 dir
     ####################################  # Ece'nin tansiyonu 13'tür 

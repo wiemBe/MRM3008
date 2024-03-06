@@ -67,7 +67,7 @@ def formula13():
 
     return Or(And(Gunduz, Not(Gece)), And(Not(Gunduz), Gece))
 
-"""
+""
 ############################################################
 # Problem 2: first-order logic
 
@@ -95,7 +95,7 @@ def formula2b():
 
 # Return a formula which defines Daughter in terms of Female and Child.
 
-# See parentChild() in examples.py for a relevant example.
+ #See parentChild() in examples.py for a relevant example.
 def formula2c():
     # Predicates to use:
     def Female(x): return Atom('Female', x)            # whether x is female
