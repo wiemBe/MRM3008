@@ -178,7 +178,7 @@ def problem21():
     
 
 # Gorev 2-2: "Birisi gitar kursu almış ise gitar calabilir"
-#TODO LOOK AGAIN NOT SURE
+
 def problem22():
 
     # Bilgi tabani ve cikarim metodu
@@ -210,7 +210,7 @@ def problem22():
 
 
 
-#TODO MUST BE TYESTED MY BRAIN DIDNT COMPREHEND
+
 # Gorev 2-3 "x,y nin cocugu ise ve x kadin ise, x y'nin kizidir".
 
 def problem23():
@@ -238,7 +238,7 @@ def problem23():
     ################################################   # x,y nin cocugu ise ve x kadin ise, x yenin kizidir
 
     #Gercekler
-    #kb.tell(Forall("$x",Forall("$y",Equiv(And(Cocugu("$x","$y"),Kizi("$y","$x")))))
+    
     kb.tell(Forall('$x', Forall('$y', Equiv(And(Cocugu('$x', '$y'), Kadin('$y')),Kizi('$x', '$y')))))
 
     kb.tell(Kadin(zeynep))
@@ -295,4 +295,5 @@ def problem24():
 
 ############################################################
 
-problem23()
+
+
